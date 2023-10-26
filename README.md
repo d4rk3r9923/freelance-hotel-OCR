@@ -1,1 +1,1 @@
-# freelancec-hotel-OCR
+# freelance-hotel-OCR
