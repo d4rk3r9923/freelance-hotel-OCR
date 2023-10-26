@@ -1,1 +1,1 @@
-# akaOCR
+# freelancec-hotel-OCR
