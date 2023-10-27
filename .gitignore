@@ -162,6 +162,3 @@ cython_debug/
 # Ignore specific directories
 invoices/data/
 invoices/models/
-
-# Ignore all __pycache__ directories
-**/__pycache__/

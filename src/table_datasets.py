@@ -32,7 +32,7 @@ def read_pascal_voc(xml_file: str, class_map=None):
         ymin, xmin, ymax, xmax = None, None, None, None
         
         label = object_.find("name").text
-        if label == "table":
+        if label in ("table", "table row", "table column", "table spanning cell"):
             try:
                 label = int(label)
             except:
