@@ -14,7 +14,7 @@ pip install huggingface_hub
 
 ## Cloning The HF Repo
 
-You can clone an entire repository using `git clone` function:
+You can clone an entire repository using `git clone` command:
 
 ```bash
 git clone https://huggingface.co/datasets/d4rk3r/invoices
