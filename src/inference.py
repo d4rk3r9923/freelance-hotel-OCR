@@ -589,7 +589,7 @@ def visualize_detected_tables(img, det_tables, out_path):
             hatch='//////'
         else:
             continue
- 
+
         rect = patches.Rectangle(bbox[:2], bbox[2]-bbox[0], bbox[3]-bbox[1], linewidth=linewidth, 
                                     edgecolor='none',facecolor=facecolor, alpha=0.1)
         ax.add_patch(rect)
@@ -607,6 +607,55 @@ def visualize_detected_tables(img, det_tables, out_path):
                                 label='Table', hatch='//////', alpha=0.3),
                         Patch(facecolor=(0.95, 0.6, 0.1), edgecolor=(0.95, 0.6, 0.1),
                                 label='Table (rotated)', hatch='//////', alpha=0.3)]
+    plt.legend(handles=legend_elements, bbox_to_anchor=(0.5, -0.02), loc='upper center', borderaxespad=0,
+                    fontsize=10, ncol=2)  
+    plt.gcf().set_size_inches(10, 10)
+    plt.axis('off')
+    plt.savefig(out_path, bbox_inches='tight', dpi=150)
+    plt.close()
+
+    return
+
+def visualize_recognized_tables(img, reg_tables, out_path):
+    plt.imshow(img, interpolation="lanczos")
+    plt.gcf().set_size_inches(20, 20)
+    ax = plt.gca()
+    
+    for reg_table in reg_tables:
+        bbox = reg_table['bbox']
+
+        if reg_table['label'] == 'table row':
+            facecolor = (0.3, 0.74, 0.8)  # Light Blue
+            edgecolor = (0.3, 0.7, 0.6)
+            alpha = 0.3
+            linewidth = 2
+            hatch='\\\\\\\\\\\\'
+        elif reg_table['label'] == 'table column':
+            facecolor = (0.7, 0.3, 0.9)  # Purple
+            edgecolor = (0.7, 0.3, 0.9)
+            alpha = 0.3
+            linewidth = 2
+            hatch='//////'
+        else:
+            continue
+
+        rect = patches.Rectangle(bbox[:2], bbox[2]-bbox[0], bbox[3]-bbox[1], linewidth=linewidth, 
+                                    edgecolor='none',facecolor=facecolor, alpha=0.1)
+        ax.add_patch(rect)
+        rect = patches.Rectangle(bbox[:2], bbox[2]-bbox[0], bbox[3]-bbox[1], linewidth=linewidth, 
+                                    edgecolor=edgecolor,facecolor='none',linestyle='-', alpha=alpha)
+        ax.add_patch(rect)
+        rect = patches.Rectangle(bbox[:2], bbox[2]-bbox[0], bbox[3]-bbox[1], linewidth=0, 
+                                    edgecolor=edgecolor,facecolor='none',linestyle='-', hatch=hatch, alpha=0.2)
+        ax.add_patch(rect)
+
+    plt.xticks([], [])
+    plt.yticks([], [])
+
+    legend_elements = [Patch(facecolor=(0.3, 0.74, 0.8), edgecolor=(0.3, 0.7, 0.6),
+                                label='Table Row', hatch='\\\\\\\\\\\\', alpha=0.3),
+                        Patch(facecolor=(0.7, 0.3, 0.9), edgecolor=(0.7, 0.3, 0.9),
+                                label='Table Column', hatch='//////', alpha=0.3)]
     plt.legend(handles=legend_elements, bbox_to_anchor=(0.5, -0.02), loc='upper center', borderaxespad=0,
                     fontsize=10, ncol=2)  
     plt.gcf().set_size_inches(10, 10)
