@@ -1,7 +1,6 @@
 # freelance-hotel-OCR
 
-```markdown
-# Hugging Face Repository Download Guide
+## Hugging Face Repository Download Guide
 
 This guide will show you how to download datasets and models from a Hugging Face repository.
 
