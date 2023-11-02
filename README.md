@@ -2,7 +2,7 @@
 
 ## Hugging Face Repository Download Guide
 
-This guide will show you how to download datasets and models from a Hugging Face repository.
+This guide will show you how to download datasets and models from a [Hugging Face repository](https://huggingface.co/datasets/d4rk3r/invoices).
 
 ## Prerequisites
 
