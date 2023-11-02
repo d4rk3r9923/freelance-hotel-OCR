@@ -37,5 +37,5 @@ To download an entire repository, use the `snapshot_download()` function:
 ```python
 from huggingface_hub import snapshot_download
 
-file_path = snapshot_download(repo_id="d4rk3r/invoices", repo_type="dataset")
+folder_path = snapshot_download(repo_id="d4rk3r/invoices", repo_type="dataset")
 ```
