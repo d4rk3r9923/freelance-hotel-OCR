@@ -162,3 +162,4 @@ cython_debug/
 # Ignore specific directories
 invoices/data/
 invoices/models/
+invoices/real-world-inv
